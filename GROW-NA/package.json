@@ -1,0 +1,17 @@
+{
+   "name": "GROW-coiso"
+  , "version": "0.0.1"
+  , "private": true,
+  "scripts": {
+    "start": " node-dev app.js "
+     ,"startudo ": "mongod --dbpath /Volumes/DADOS/GIT_HUB/coiso-app/GROWDB & node-dev app.js "
+     ,"vai":"sudo service mongodb start"
+  },
+  "dependencies": {
+      "express": "3.3.1"
+    , "jade": ">= 0.0.1"
+    , "less-middleware": "*"
+    , "mongoose" : "*"
+    , "johnny-five" :"*"
+  }
+}

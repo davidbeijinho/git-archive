@@ -1,0 +1,57 @@
+extends layout
+
+block body
+  div.navbar.navbar-inverse.navbar-fixed-top
+    div.navbar-inner
+      div.container
+        button(type="button", data-toggle="collapse", data-target=".nav-collapse").btn.btn-navbar
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a(href="/").brand GrowLab
+        div.nav-collapse.collapse
+          ul.nav
+            li
+              a(href="/ambiente") Ambiente
+            li
+              a(href="/ensaios") Ensaios
+            li
+              a(href="/rega") Rega
+            li
+              a(href="/dashboard") Dashboard
+            li
+              a(href="/reports") Reports
+  div.container
+    div.row-fluid
+      div.span6 Ola
+        div
+      div.span6 ola1
+  div
+    h2 My Blog
+    ul
+      li
+        a(href='/') Home
+      li
+        a(href='/addPost') Add a new post
+
+  div(ng-view)
+  script(src='js/jquery-2.0.3.min.js')
+  script(src="js/bootstrap-transition.js")
+  script(src="js/bootstrap-alert.js")
+  script(src="js/bootstrap-modal.js")
+  script(src="js/bootstrap-dropdown.js")
+  script(src="js/bootstrap-scrollspy.js")
+  script(src="js/bootstrap-tab.js")
+  script(src="js/bootstrap-tooltip.js")
+  script(src="js/bootstrap-popover.js")
+  script(src="js/bootstrap-button.js")
+  script(src="js/bootstrap-collapse.js")
+  script(src="js/bootstrap-carousel.js")
+  script(src="js/bootstrap-typeahead.js")
+  script(src='js/angular.min.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
+  script(src='js/ui-bootstrap-tpls-0.4.0.js')

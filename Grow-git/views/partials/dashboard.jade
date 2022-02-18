@@ -1,0 +1,21 @@
+div.row
+  div().col-md-6
+    h2 DASHBOARD
+    div.row
+      div#sensor01.col-md-6.graficos
+      div#sensor02.col-md-6.graficos
+    div.row
+      div#sensor03.col-md-6.graficos
+      div#sensor04.col-md-6.graficos
+    div.row
+      div {{sen01.length}}
+      div {{sen01[sen01.length-1].x}}
+      div {{sen01[sen01.length-1].y}}
+  div().col-md-6
+    div.row
+      h2 Ambiental defenitions
+      p Temperature
+      p Relative Humidity
+      p Photoperiod
+    div.row
+      h2 Watering

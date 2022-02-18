@@ -1,0 +1,51 @@
+div.row
+  div.col-md-6
+    div.row
+      h2 Create Trial
+      form(ng-submit='criar()' ,id="ensaioForm", name="ensaioForm").col-lg-12
+        div.form-group
+          label(for="nomeEnsaio") Name
+          input(ng-model="nome", required , type="text" ,id="nomeEnsaio" ,placeholder="Trial name").form-control
+        div.form-group
+          label( for="descriptive" ) Descriptive
+          textarea( ng-model="descriptive",rows="3").form-control
+        div.form-group
+          label(for="plant") Plant
+          input(ng-model="plant", required , type="text" ,id="nomeEnsaio" ,placeholder="Plant").form-control
+        div.row
+          div.form-group.col-lg-6
+            label( for="probeType" ) Trial kind
+            select(id="probeType" ,ng-model="kind",required ,ng-options="kind.name for kind in kinds    | filter: !kind.activo ").form-control
+              option(value="") Select kind
+          div.form-group.col-lg-6
+            label( for="probeID" ) Probe
+            select(multiple,id="probeID" ,ng-model="probe",required ,ng-options="prob.name for prob in probes    | filter: !prob.livre ").form-control
+              option(value="") Select probe
+        button(type="submit").btn.btn-default Create
+  div.col-md-6
+    div.row
+      h2 {{ensaios.length}} Active Trials
+      table.table.table-bordered.table-hover
+        thead
+          th Name
+          th Probe
+          th Kind
+          th Plant
+        tbody
+          tr(ng-repeat='ensaio in ensaios')
+            td 
+              a(href="trial/{{$index}}") {{ensaio.name}}
+            td
+              a(ng-repeat='prob in ensaio.probe',href="probe/{{prob.id}}") {{" "+prob.name+" "}}
+            td 
+              {{ensaio.kind.name}}
+            td 
+              {{ensaio.plant}}
+    div.row
+      h2 Completed Trials
+      table.table.table-bordered.table-hover
+        thead
+          th Name
+          th Probe
+          th Kind
+          th Plant

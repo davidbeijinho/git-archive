@@ -1,0 +1,26 @@
+h2 ENSAIOS
+div.row
+  div.col-lg-6
+    form(ng-submit='criar()' , name="ensaioForm")
+      fieldset
+        legend Criar Ensaio
+        div.form-group
+          label(for="nomeEnsaio") Nome
+          input(ng-model="nome", required , type="text" ,id="nomeEnsaio" ,placeholder="Nome do ensaio").form-control
+        div.form-group
+          label( for="probeID" ) Probe
+          select(id="probeID" ,ng-model="probe",required ,ng-options="prob.name for prob in probes    | filter: !prob.livre ").form-control
+            option(value="") Escolhe o probe
+        button( type="submit" ).btn.btn-default Criar  
+  div.col-lg-6 ACTIVOS
+    p Existem {{ensaios.length}} ensaios
+    h1 aa -> {{coiso}} <-bb
+      div(ng-repeat='ensaio in ensaios')
+
+        h2 Nome: {{ensaio.name}} com o id: {{ensaio._id}}
+        h3 no probe: {{ensaio.probe}}
+        h3 criado em : {{ensaio.data}}
+        p
+          a(href='/ensaio/{{ensaio._id}}') Ver        
+        p
+          a(href='/endensaio/{{ensaio._id}}') Terminar

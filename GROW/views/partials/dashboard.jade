@@ -1,0 +1,11 @@
+h2 DASHBOARD
+form( ng-submit="addTodo()")
+  input( type="text" ,ng-model="val_x" , size="10", placeholder="X")
+  input( type="text" ,ng-model="val_y" , size="10", placeholder="Y")
+  input(class="btn-primary", type="submit", value="add")
+div#chart
+div#y_axis
+div {{dadoss.length}}
+div {{dadoss[dadoss.length-1].x}}
+div {{dadoss[dadoss.length-1].y}}
+button( ng-click="desenha()" ) DESENHA

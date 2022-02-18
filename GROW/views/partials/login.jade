@@ -1,0 +1,12 @@
+H2 LOGIN
+div.row
+  div.col-4.col-offset-4
+    div.alert.alert-danger(ng-show="erroLog") {{erroLogin}}
+    form(ng-submit='entrar()' , name="loginForm")
+        div.form-group
+          label() Username
+          input( type="text", placeholder="Enter username" ,ng-model="Iusername",required).form-control
+        div.form-group
+          label() Password
+          input( type="password"  ,placeholder="Password",ng-model="Ipassword",required).form-control
+        button( type="submit" ).btn.btn-default Login 

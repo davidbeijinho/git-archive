@@ -1,0 +1,30 @@
+{
+  "name": "tracking",
+  "plural": "trackings",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "tracker": {
+      "type": "string",
+      "required": true
+    },
+    "stamp": {
+      "type": "date"
+    },
+    "count": {
+      "type": "number",
+      "default": 0
+    },
+    "location": {
+      "type": "GeoPoint",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

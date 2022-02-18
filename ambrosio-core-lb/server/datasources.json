@@ -1,0 +1,12 @@
+{
+  "core-ambrosio-mongo": {
+    "url": "mongodb://ambrosio:mercurio109@core-ambrosio-shard-00-00-3fzrx.mongodb.net:27017,core-ambrosio-shard-00-01-3fzrx.mongodb.net:27017,core-ambrosio-shard-00-02-3fzrx.mongodb.net:27017/test?ssl=true&replicaSet=core-ambrosio-shard-0&authSource=admin",
+    "name": "core-ambrosio-mongo",
+    "connector": "mongodb",
+    "host": "",
+    "port": 0,
+    "database": "",
+    "password": "",
+    "user": ""
+  }
+}

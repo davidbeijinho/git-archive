@@ -1,0 +1,38 @@
+!!!
+html(ng-app="myApp")
+  head
+    meta(charset='utf8')
+    base(href='/')
+    title GROW-LAB
+    link(rel='stylesheet', href='/css/app.css')
+    link(rel='stylesheet', href='/css/bootstrap.css')
+  body
+  div.container(ng-controller="MenuCtrl")
+    div.navbar
+      a(href="/").navbar-brand Grow-Lab
+      ul.nav.navbar-nav
+         li(ng-class="{active:isActive('/ambiente')}")
+           a(href="/ambiente") Ambiente
+         li(ng-class="{active:isActive('/ensaios')}")
+           a(href="/ensaios") Ensaios
+         li(ng-class="{active:isActive('/rega')}")
+           a(href="/rega") Rega
+         li(ng-class="{active:isActive('/dashboard')}")
+           a(href="/dashboard") Dashboard
+         li(ng-class="{active:isActive('/reports')}")
+           a(href="/reports") Reports
+      ul.nav.navbar-nav.pull-right
+        li(ng-hide="user.logado")
+           a(href="/login") Login
+        li(ng-show="user.logado")
+          a(data-toggle="dropdown").dropdown-toggle {{user.username}} 
+            span.caret
+          ul.dropdown-menu.pull-right
+            li
+              a(href="/perfil") Perfil
+            li
+              a(href="/estufas") Estufas
+            li.divider
+            li
+              a(href="/logout") Logout
+    block body

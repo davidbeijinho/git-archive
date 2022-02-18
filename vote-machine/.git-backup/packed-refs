@@ -1,0 +1,14 @@
+# pack-refs with: peeled fully-peeled sorted 
+e01ab2b83ee833314e4ea843c88d329289f339ce refs/remotes/origin/feat/connect-to-wifi
+42afe614a9eb1fb28e0578a0729ae35c905347f9 refs/remotes/origin/feat/create-api
+3d913ec7e38bd54b0bf4db6a3b2b747cbcd5730d refs/remotes/origin/feat/create-frontend
+eb598f613f8738b5479def9c3bfb0dac550136a0 refs/remotes/origin/feat/create-server
+6186a82fecb1a685f79dde72ecaa3eb6b9da7498 refs/remotes/origin/feat/format
+a42263289c8b96cf26e6c1b8445f0474d5979caa refs/remotes/origin/feat/format-fs
+343dedf1a5110a263d766dc5637d4ae4916dac6f refs/remotes/origin/feat/presentation
+6186a82fecb1a685f79dde72ecaa3eb6b9da7498 refs/remotes/origin/feat/project-structure
+6b886d08b6e0fea60c330e234f8f9a07b53a378f refs/remotes/origin/feat/serial-monitor
+93538b85636dab39e4f3da41a115e1edb50e7cb8 refs/remotes/origin/feat/turn-on-leds
+9c5b829eb985c368bb5a28e4b6b78a85029d0963 refs/remotes/origin/feat/upload-files
+42afe614a9eb1fb28e0578a0729ae35c905347f9 refs/remotes/origin/final
+6186a82fecb1a685f79dde72ecaa3eb6b9da7498 refs/remotes/origin/master

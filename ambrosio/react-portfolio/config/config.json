@@ -1,0 +1,8 @@
+{
+    "deploy":{
+        "remoteBase": "/public_html/",
+        "remoteDir": "/public_html/",
+        "localDir": "./build/",
+        "directoryName": "reactTheme"
+    }
+}

@@ -1,0 +1,103 @@
+html {
+  font-family: 'Montserrat', sans-serif;
+}
+/* font-family: 'Inconsolata', monospace; */
+/* font-family: 'Montserrat', sans-serif; */
+
+h1,h2 {
+  font-family: 'Inconsolata', monospace;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.container {
+  margin: 0 1rem;
+  position: relative;
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1472px to higher resolution desktops
+*/
+@media (min-width: 1472px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1344px;
+    width: 1344px;
+  }
+  body {
+    /* background-color: yello; */
+  }
+}
+
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+@media (min-width: 1281px) {
+  .container {
+    margin: 0 auto;
+    max-width: 1152px;
+    width: 1152px;
+  }
+  body {
+    /* background-color: magenta; */
+  }
+}
+
+/* 
+  ##Device = Laptops, Desktops
+  ##Screen = B/w 1025px to 1280px
+*/
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .container {
+    margin: 0 auto;
+    max-width: 960px;
+    width: 960px;
+  }
+  body {
+    /* background-color: cyan; */
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (portrait)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  body {
+    /* background-color: brown; */
+  }
+}
+
+/* 
+  ##Device = Tablets, Ipads (landscape)
+  ##Screen = B/w 768px to 1024px
+*/
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  body {
+    /* background-color: violet; */
+  }
+}
+
+/* 
+  ##Device = Low Resolution Tablets, Mobiles (Landscape)
+  ##Screen = B/w 481px to 767px
+*/
+@media (min-width: 481px) and (max-width: 767px) {
+  body {
+    /* background-color: blue; */
+  }
+}
+
+/* 
+  ##Device = Most of the Smartphones Mobiles (Portrait)
+  ##Screen = B/w 320px to 479px
+*/
+@media (min-width: 320px) and (max-width: 480px) {
+  body {
+    /* background-color: greenyellow; */
+  }
+}

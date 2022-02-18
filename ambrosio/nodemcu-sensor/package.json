@@ -1,0 +1,61 @@
+{
+  "name": "nodemcu-sensor",
+  "version": "0.0.3",
+  "description": "The code for a sensor build with nodemcu using espruino",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "nodemon swagger.js",
+    "list": "espruino --list",
+    "help": "espruino --help",
+    "configs": "espruino --listconfigs",
+    "espruino": "espruino",
+    "uploadServer": "espruino --board ESP8266_4MB -b 115200 -v --no-ble --config RESET_BEFORE_SEND=true --config SAVE_ON_SEND=true ./src/server.js",
+    "uploadServer:watch": "espruino --board ESP8266_4MB -b 115200 -v --no-ble --config RESET_BEFORE_SEND=true --config SAVE_ON_SEND=true -w ./src/server.js",
+    "uploadBlink": "espruino --board ESP8266_4MB -b 115200 -v --no-ble --config RESET_BEFORE_SEND=true --config SAVE_ON_SEND=true ./src/blink.js",
+    "uploadBlink:watch": "espruino --board ESP8266_4MB -b 115200 -v --no-ble --config RESET_BEFORE_SEND=true --config SAVE_ON_SEND=true -w ./src/blink.js",
+    "uploadFile": "espruino --board ESP8266_4MB -b 115200 -v --no-ble --config RESET_BEFORE_SEND=true --config SAVE_ON_SEND=true -w",
+    "ledTest": "espruino --board ESP8266_4MB  -v -b 115200 -e \"digitalWrite(NodeMCU.D4,false);\"",
+    "process": "espruino --board ESP8266_4MB  -v -b 115200 -e \"console.log(JSON.stringify(process.env));\"",
+    "reset": "espruino --board ESP8266_4MB -v -b 115200 -e \"reset();\" --config RESET_BEFORE_SEND=false --config SAVE_ON_SEND=false",
+    "save": "espruino  --board ESP8266_4MB -v -b 115200 -e \"save();\"  --config RESET_BEFORE_SEND=false --config SAVE_ON_SEND=false",
+    "resetsave": "espruino  --board ESP8266_4MB -v -b 115200 -e \"reset();save();\"  --config RESET_BEFORE_SEND=false --config SAVE_ON_SEND=false",
+    "upload:watch": "npm run uploadServer:watch",
+    "upload": "npm run uploadServer",
+    "dev": "nodemon swagger.js",
+    "eslint": "eslint .",
+    "eslint:fix": "eslint . --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidbeijinho/nodemcu-sensor.git"
+  },
+  "keywords": [
+    "Javascript",
+    "NodeMCU",
+    "Espruino",
+    "IOT"
+  ],
+  "author": "davidbeijinho@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davidbeijinho/nodemcu-sensor/issues"
+  },
+  "homepage": "https://github.com/davidbeijinho/nodemcu-sensor#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "espruino": "^0.1.13",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4",
+    "swagger-ui": "^3.18.3",
+    "swagger-ui-dist": "^3.18.3-republish2"
+  },
+  "devDependencies": {
+    "eslint": "^5.6.0",
+    "eslint-config-google": "^0.10.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0"
+  }
+}

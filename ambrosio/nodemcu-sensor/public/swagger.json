@@ -1,0 +1,326 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "description": "This is the api for the NodeMCU sensor",
+        "version": "0.0.3",
+        "title": "NodeMCU sensor",
+        "contact": {
+            "email": "davidbeijinho@gmail.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://192.168.0.160/"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Main",
+            "description": "The main route"
+        },
+        {
+            "name": "Led",
+            "description": "Led related routes"
+        },
+        {
+            "name": "Updater",
+            "description": "Updater related routes"
+        },
+        {
+            "name": "Sensor",
+            "description": "Sensor related routes"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "Main"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Invalid input",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/boardInformation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/led": {
+            "get": {
+                "tags": [
+                    "Led"
+                ],
+                "summary": "Get the led information",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ledApiResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Led"
+                ],
+                "summary": "Set the status of the led",
+                "requestBody": {
+                    "description": "Optional description in *Markdown*",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ledInformation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Invalid ID supplied",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/boardInformation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/updater": {
+            "get": {
+                "tags": [
+                    "Updater"
+                ],
+                "summary": "Get the Updater Config",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/updaterInformation"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "Updater"
+                ],
+                "summary": "Set the Updater config",
+                "requestBody": {
+                    "description": "Optional description in *Markdown*",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updaterInformation"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Updater config update",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/updaterInformation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sensor": {
+            "get": {
+                "tags": [
+                    "Sensor"
+                ],
+                "summary": "Get information of the sensor",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/sensorApiResponse"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Sensor not connected",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/errorSensorApiResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/sensor/connect": {
+            "post": {
+                "tags": [
+                    "Sensor"
+                ],
+                "summary": "Connect to the sensor",
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/boardInformation"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid Order",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/boardInformation"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ledInformation": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "boolean",
+                        "description": "The led status"
+                    }
+                }
+            },
+            "sensorInformation": {
+                "type": "object",
+                "properties": {
+                    "pressure": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "the pressure in Pa"
+                    },
+                    "temperature": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "The temperature in celcius"
+                    },
+                    "altitude": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "The altitud in meters"
+                    }
+                }
+            },
+            "boardInformation": {
+                "type": "object",
+                "properties": {
+                    "upTime": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "The board uptime, milliseconds since boot"
+                    },
+                    "startTime": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "The board start time epoch"
+                    }
+                }
+            },
+            "updaterInformation": {
+                "type": "object",
+                "properties": {
+                    "upTime": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "The board uptime, milliseconds since boot"
+                    },
+                    "startTime": {
+                        "type": "number",
+                        "format": "float",
+                        "description": "The board start time epoch"
+                    }
+                }
+            },
+            "ApiResponse": {
+                "type": "object",
+                "properties": {
+                    "code": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "type": {
+                        "type": "string"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                }
+            },
+            "sensorApiResponse": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/sensorInformation"
+                    },
+                    {
+                        "$ref": "#/components/schemas/boardInformation"
+                    }
+                ]
+            },
+            "ledApiResponse": {
+                "allOf": [
+                    {
+                        "$ref": "#/components/schemas/ledInformation"
+                    },
+                    {
+                        "$ref": "#/components/schemas/boardInformation"
+                    }
+                ]
+            },
+            "errorSensorApiResponse": {
+                "allOf": [
+                    {
+                        "type": "object",
+                        "properties": {
+                            "error": {
+                                "type": "string"
+                            }
+                        }
+                    },
+                    {
+                        "$ref": "#/components/schemas/boardInformation"
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: dnsmasq-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dnsmasq-service
+  template:
+    metadata:
+      labels:
+        app: dnsmasq-service
+    spec:
+      hostNetwork: true
+      containers:
+        - name: dnsmasq-service
+          # image: anzevalher/dnsmasq:latest
+          image: jackd0815/dnsmasq
+          # image: marcovolpato00/dnsmasq-webproc # has UI
+          securityContext:
+            capabilities:
+              add:
+              - NET_ADMIN
+      #     volumeMounts:
+      #     - mountPath: /etc/dnsmasq.conf
+      #       name: conf
+      #     - mountPath: /var/lib/misc/
+      #       name: misc
+      # volumes:
+      #   - name: conf
+      #     hostPath:
+      #       path: /home/pi/INFRA_DATA/dnsmasq/dnsmasq.conf
+      #       type: File
+      #   - name: misc
+      #     hostPath:
+      #       path: /home/pi/INFRA_DATA/dnsmasq/misc
+      #       type: DirectoryOrCreate

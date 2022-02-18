@@ -1,0 +1,49 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: netdata-app
+  namespace: netdata-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: netdata-app
+  template:
+    metadata:
+      labels:
+        app: netdata-app
+    spec:
+      containers:
+        - name: netdata-app
+          image: netdata/netdata
+          securityContext:
+            capabilities:
+              add:
+              - SYS_PTRACE
+          volumeMounts:
+            - mountPath: /host/etc/passwd
+              name: passwd
+            - mountPath: /host/etc/group
+              name: group
+            - mountPath: /host/proc
+              name: proc
+            - mountPath: /host/sys
+              name: sys
+            - mountPath: /host/etc/os-release
+              name: release
+      volumes:
+        - name: passwd
+          hostPath:
+            path: /etc/passwd
+        - name: group
+          hostPath:
+            path: /etc/group
+        - name: proc
+          hostPath:
+            path: /proc
+        - name: sys
+          hostPath:
+            path: /sys
+        - name: release
+          hostPath:
+            path: /etc/os-release

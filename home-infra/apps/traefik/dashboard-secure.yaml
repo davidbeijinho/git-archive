@@ -1,0 +1,15 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: traefik-dashboard-secure
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`traefik.barcini.duckdns.org`)
+      kind: Rule
+      services:
+        - name: api@internal
+          kind: TraefikService
+  tls: # This route uses TLS
+    certResolver: myresolver

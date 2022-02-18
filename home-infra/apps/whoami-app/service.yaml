@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whoami-app
+  namespace: whoami-app
+  labels:
+    app: whoami-app
+spec:
+  ports:
+    - port: 80
+      name: whoami-app
+  selector:
+    app: whoami-app

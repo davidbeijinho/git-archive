@@ -1,0 +1,16 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: netdata-web
+  namespace: netdata-app
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`mydomain.com`)
+      kind: Rule
+      services:
+        - name: netdata-app
+          port: 19999
+  tls: # This route uses TLS
+    certResolver: myresolver

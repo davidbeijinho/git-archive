@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: duckdns
+  namespace: duckdns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: duckdns
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: duckdns    
+    spec:
+      restartPolicy: Always
+      containers:
+      - env:
+        - name: LOG_FILE
+          value: "true"
+        - name: SUBDOMAINS
+          value: SUBDOMAIN1,SUBDOMIAN2          
+        - name: TOKEN
+          value: TOKEN
+        - name: TZ
+          value: Europe/Madrid
+        image: ghcr.io/linuxserver/duckdns
+        name: duckdns
+        volumeMounts:
+        - mountPath: /config
+          name: config
+      volumes:
+      - name: config
+        hostPath:
+          path: /path/to/dir
+          type: DirectoryOrCreate
